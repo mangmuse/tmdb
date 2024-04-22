@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/dcfff33ef9.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./css/index.css" />
+    <script type="module" src="./js/main.js" defer></script>
+  </head>
+  <body>
+    <header class="search__header">
+      <form class="header__form">
+        <input
+          class="header__form--input"
+          placeholder="Search..."
+          type="text"
+        />
+        <button class="header__form--btn" type="submit">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+    </header>
+
+    <p class="error__message hidden">
+      데이터를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.
+    </p>
+
+    <section class="movie__container"></section>
+  </body>
+</html>
