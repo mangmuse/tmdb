@@ -23,15 +23,15 @@ async function getMovies() {
 
 let allMovies = [];
 
-async function displayMovies(inputValue = "") {
+async function displayMovies(movies = allMovies, inputValue = "") {
   try {
     const movieContainer = document.querySelector(".movie__container");
     movieContainer.innerHTML = "";
     const filteredMovies = inputValue
-      ? allMovies.filter((movie) =>
+      ? movies.filter((movie) =>
           movie.title.toLowerCase().includes(inputValue.toLowerCase())
         )
-      : allMovies;
+      : movies;
     for (const movie of filteredMovies) {
       const movieCard = document.createElement("li");
       movieCard.className = "movie__card";
@@ -68,14 +68,38 @@ async function initMovies() {
   }
 }
 
+function sortMovies(movies, option) {
+  switch (option) {
+    case "rating__desc":
+      return movies.sort((a, b) => b.vote_average - a.vote_average);
+    case "rating__asc":
+      return movies.sort((a, b) => a.vote_average - b.vote_average);
+    case "title__asc":
+      return movies.sort((a, b) => a.title.localeCompare(b.title));
+    case "title__desc":
+      return movies.sort((a, b) => b.title.localeCompare(a.title));
+    default:
+      return allMovies;
+  }
+}
+
 let inputValue = "";
 
 const headerForm = document.querySelector(".header__form");
-const searchInput = document.querySelector(".header__form--input");
+
 headerForm.addEventListener("submit", (e) => {
+  const searchInput = document.querySelector(".header__form--input");
   e.preventDefault();
   inputValue = searchInput.value;
-  displayMovies(inputValue);
+  displayMovies(allMovies, inputValue);
+});
+
+const sortOption = document.querySelector("#sort__option");
+
+sortOption.addEventListener("change", (e) => {
+  const selectedOption = e.target.value;
+  const sortedMovies = sortMovies([...allMovies], selectedOption);
+  displayMovies(sortedMovies, inputValue);
 });
 
 initMovies();
