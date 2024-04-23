@@ -93,6 +93,7 @@ headerForm.addEventListener("submit", (e) => {
   e.preventDefault();
   inputValue = searchInput.value;
   displayMovies(allMovies, inputValue);
+  window.scrollTo(0, 0);
 });
 
 const sortOption = document.querySelector("#sort__option");
@@ -101,6 +102,7 @@ sortOption.addEventListener("change", (e) => {
   const selectedOption = e.target.value;
   const sortedMovies = sortMovies(allMovies, selectedOption);
   displayMovies(sortedMovies, inputValue);
+  window.scrollTo(0, 0);
 });
 
 initMovies();
