@@ -62,7 +62,8 @@ async function displayMovies(movies = allMovies, inputValue = "") {
 async function initMovies() {
   try {
     allMovies = await getMovies();
-    displayMovies();
+    allMovies.sort((a, b) => b.vote_average - a.vote_average);
+    displayMovies(allMovies);
   } catch (e) {
     console.error(e);
   }
@@ -79,7 +80,7 @@ function sortMovies(movies, option) {
     case "title__desc":
       return movies.sort((a, b) => b.title.localeCompare(a.title));
     default:
-      return allMovies;
+      return movies;
   }
 }
 
@@ -98,7 +99,7 @@ const sortOption = document.querySelector("#sort__option");
 
 sortOption.addEventListener("change", (e) => {
   const selectedOption = e.target.value;
-  const sortedMovies = sortMovies([...allMovies], selectedOption);
+  const sortedMovies = sortMovies(allMovies, selectedOption);
   displayMovies(sortedMovies, inputValue);
 });
 
