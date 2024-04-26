@@ -1,3 +1,6 @@
+@import url("./header.css");
+@import url("./movies.css");
+
 :root {
   --color-black-light: #121212;
   --color-black: #0f0f0f;
@@ -14,113 +17,10 @@ body {
   color: var(--color-white);
 }
 
-.search__header {
-  width: 100%;
-  height: 8vh;
-  display: flex;
-  position: fixed;
-  justify-content: center;
-  padding-top: 0.3rem;
-  margin-bottom: 1.5rem;
-  background-color: var(--color-black);
-}
-
-.header__form {
-  width: 70%;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-}
-
-.header__form--input {
-  background-color: var(--color-black-light);
-  font-size: 2rem;
-  color: var(--color-white);
-  border: none;
-
-  padding: 0.5rem 2rem;
-  width: 50%;
-  height: 3rem;
-  outline: 2px solid var(--color-gray);
-  /* box-sizing: border-box; */
-}
-
-.header__form--btn {
-  width: 5rem;
-  border: none;
-  outline: 2px solid var(--color-gray);
-  border-left: none;
-  background-color: var(--color-gray-light);
-  color: var(--color-white);
-  font-size: 1.5rem;
-}
-
-.movie__container {
-  display: grid;
-  gap: 1rem;
-  padding-top: 9vh;
-}
-
-.movie__card {
-  display: flex;
-  border-bottom: 1px solid var(--color-gray-light);
-}
-.movie__img__container {
-  display: flex;
-  align-items: center;
-  width: 200px;
-}
-
-.movie__detail {
-  padding: 1.5rem;
-}
-.movie__rating {
-  font-size: 1.2rem;
-  font-weight: 500;
-}
-
 .error__message {
   font-size: 1.5rem;
   display: block;
 }
 .hidden {
   display: none;
-}
-
-/* Select 요소 기본 스타일링 */
-#sort__option {
-  padding: 10px;
-  margin: 10px;
-  font-size: 1rem;
-  background-color: #ffffff;
-  color: var(--color-black);
-  border-radius: 5px;
-  border: 1px solid var(--color-gray);
-  cursor: pointer;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
-
-/* Select 요소 화살표 대체 */
-
-@media (min-width: 640px) {
-  .movie__container {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-  }
-}
-@media (min-width: 768px) {
-  .movie__container {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-@media (min-width: 1280px) {
-  .movie__container {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-@media (min-width: 1536px) {
-  .movie__container {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
 }
