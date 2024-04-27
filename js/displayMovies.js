@@ -11,9 +11,16 @@ export function displayMovies(movies, inputValue = "") {
     document.querySelector(".error__message").classList.remove("hidden");
   }
 }
+
+const handleCardClick = (e) => {
+  const movieId = e.currentTarget.dataset.key;
+  alert(`id: ${movieId}`);
+};
+
 function renderMovieCards(filteredMovies) {
   const movieContainer = document.querySelector(".movie__container");
   movieContainer.innerHTML = "";
+  const fragment = new DocumentFragment();
   for (const movie of filteredMovies) {
     const movieCard = document.createElement("li");
     movieCard.className = "movie__card";
@@ -28,10 +35,8 @@ function renderMovieCards(filteredMovies) {
               <p class="movie__rating">Rating: ${movie.vote_average}</p>
               </div>
                   `;
-    movieContainer.appendChild(movieCard);
-    movieCard.addEventListener("click", () => {
-      const movieId = movieCard.dataset.key;
-      alert(`id: ${movieId}`);
-    });
+    fragment.appendChild(movieCard);
+    movieCard.addEventListener("click", handleCardClick);
   }
+  movieContainer.appendChild(fragment);
 }

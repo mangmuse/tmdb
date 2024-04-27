@@ -2,10 +2,11 @@ import { displayMovies } from "./displayMovies.js";
 import { getMovies } from "./getMovies.js";
 import { sortMovies } from "./sortMovies.js";
 
+const searchInput = document.querySelector(".header__form--input");
 let allMovies = [];
-
 async function initMovies() {
   try {
+    searchInput.focus();
     allMovies = await getMovies();
     allMovies.sort((a, b) => b.vote_average - a.vote_average);
     displayMovies(allMovies);
@@ -17,7 +18,6 @@ async function initMovies() {
 let inputValue = "";
 
 const handleFormSubmit = (e) => {
-  const searchInput = document.querySelector(".header__form--input");
   e.preventDefault();
   inputValue = searchInput.value;
   displayMovies(allMovies, inputValue);
