@@ -10,14 +10,13 @@ const options = {
 };
 export async function getMovies() {
   try {
-    const resourceType = "movie/populdar";
+    const resourceType = "movie/popular";
     const languageParam = "en-US";
     const url = `https://api.themoviedb.org/3/${resourceType}?language=${languageParam}&page=1`;
     const response = await fetch(url, options);
     const data = await response.json();
     return data.results;
   } catch (e) {
-    document.querySelector(".error__message").classList.remove("hidden");
     throw new Error(e);
   }
 }
