@@ -38,12 +38,12 @@
 }
 
 #sort__option {
-  padding: 10px;
-  margin: 10px;
+  padding: 0.6rem;
+  margin: 0.6rem;
   font-size: 1rem;
   background-color: var(--color-white);
   color: var(--color-black);
-  border-radius: 5px;
+  border-radius: 0.5rem;
   border: 1px solid var(--color-gray);
   cursor: pointer;
   appearance: none;

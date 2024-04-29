@@ -11,7 +11,8 @@ async function initMovies() {
     allMovies.sort((a, b) => b.vote_average - a.vote_average);
     displayMovies(allMovies);
   } catch (e) {
-    console.error(e);
+    document.querySelector(".error__message").classList.remove("hidden");
+    throw new Error(e);
   }
 }
 
