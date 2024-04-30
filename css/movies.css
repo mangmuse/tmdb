@@ -17,6 +17,16 @@
 .movie__detail {
   padding: 1.5rem;
 }
+.movie__title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.movie__overview {
+  font-size: 1rem;
+  line-height: 1.1rem;
+  margin-bottom: 1rem;
+}
 .movie__rating {
   font-size: 1.2rem;
   font-weight: 500;
